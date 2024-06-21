@@ -1,0 +1,81 @@
+/* CSS reset для единообразия стилей */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Базовые стили */
+:root {
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-color: rgba(255, 255, 255, 0.87);
+  --bg-color: #242424;
+  --link-color: #646cff;
+  --link-hover-color: #535bf2;
+  --header-footer-bg-color: #282c34;
+  --header-footer-padding: 20px;
+  --body-padding: 20px;
+  --sidebar-bg-color: #333;
+  --sidebar-width: 250px;
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color var(--transition-speed);
+}
+
+button:hover {
+  border-color: var(--link-color);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --font-color: #213547;
+    --bg-color: #ffffff;
+    --link-hover-color: #747bff;
+    --button-bg-color: #f9f9f9;
+  }
+  button {
+    background-color: var(--button-bg-color);
+  }
+}

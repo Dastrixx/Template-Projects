@@ -1,0 +1,121 @@
+/* Основной контейнер */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  background-color: var(--header-footer-bg-color);
+  padding: var(--header-footer-padding);
+  color: white;
+  text-align: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--sidebar-bg-color);
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  color: white;
+  height: 100%;
+  position: fixed; /* Фиксируем боковую панель */
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Прокрутка для длинного содержимого */
+  transition: transform var(--transition-speed);
+}
+
+/* Sidebar скрытие */
+.sidebar-hidden {
+  transform: translateX(-100%);
+}
+
+/* Content */
+.content {
+  margin-left: var(--sidebar-width); /* Оставляем место для боковой панели */
+  flex: 1;
+  padding: var(--body-padding);
+  width: calc(100% - var(--sidebar-width));
+  box-sizing: border-box;
+  transition: margin-left var(--transition-speed), width var(--transition-speed);
+}
+
+/* Content без Sidebar */
+.content-full {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Body */
+.body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--header-footer-bg-color);
+  padding: var(--header-footer-padding);
+  color: white;
+  text-align: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 768px) {
+  .header,
+  .footer {
+    padding: 15px;
+  }
+
+  .body {
+    padding: 15px;
+  }
+
+  .sidebar {
+    width: 200px; /* Сужаем боковую панель на меньших экранах */
+  }
+
+  .content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+
+  .content-full {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header,
+  .footer {
+    padding: 10px;
+  }
+
+  .body {
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 150px; /* Еще больше сужаем боковую панель */
+  }
+
+  .content {
+    margin-left: 150px;
+    width: calc(100% - 150px);
+  }
+
+  .content-full {
+    width: 100%;
+  }
+}
